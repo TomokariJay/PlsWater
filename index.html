@@ -7,6 +7,7 @@
         body {
             background-image: url("water.png");
             background-size: cover;
+            background-attachment: fixed; /* Prevents background shifting */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,7 +21,7 @@
         }
 
         #drown-img.grow {
-            transform: scale(1.2);
+            transform: scale(1.5); /* Increased size */
         }
     </style>
 </head>
