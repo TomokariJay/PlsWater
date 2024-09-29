@@ -15,20 +15,25 @@
         }
 
         #clickableImage {
-            width: 500px; /* Initial image size */
-            transition: transform 0.3s ease, width 0.3s ease; /* Smooth size change */
+            width: 750px; /* Initial size of drown.gif */
+            transition: width 0.5s ease; /* Smooth growth effect */
         }
 
-        /* Optional animation when the image grows */
+        /* Grow image slightly after shrinking */
         .grow {
-            transform: scale(1.1); /* Grow image slightly */
+            width: 150px; /* New size after growing */
         }
     </style>
     <script>
         function changeImage() {
             const img = document.getElementById('clickableImage');
-            img.src = 'thums up man.png'; // Change to the new image
-            img.classList.add('grow'); // Add grow effect
+            img.src = 'thumbs up man.png'; // Change to the new image
+            img.style.width = '100px'; // Instantly shrink to 100px
+
+            // Allow some time for the shrink, then grow
+            setTimeout(() => {
+                img.classList.add('grow'); // Smoothly grow to 150px
+            }, 2); // Short delay before growing
         }
     </script>
 </head>
