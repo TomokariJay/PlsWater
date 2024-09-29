@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>brickwall</title>
-  <link rel="icon" type="image/x-icon"href="favicon.ico">
+    <title>Save him from drowning</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
-            background-image: url("water.png"); /* Replace "path/to/your/image.jpg" with your image file path */
-            background-size: cover; /* Optional: Set how the image should fit */
-        }
-        html, body {
-            height: 100%;
+            background-image: url("water.png");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
+        }
+
+        #drown-img {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        #drown-img.grow {
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
-    <!-- Your website content here -->
+    <img id="drown-img" src="drown.gif" alt="Drowning Image" />
+
+    <script>
+        const imgElement = document.getElementById('drown-img');
+        
+        imgElement.addEventListener('click', function() {
+            // Change the image
+            imgElement.src = "thums up man.png";
+            
+            // Add the grow class to increase size
+            imgElement.classList.add('grow');
+        });
+    </script>
 </body>
 </html>
