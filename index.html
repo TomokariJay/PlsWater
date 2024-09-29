@@ -28,12 +28,33 @@
         function changeImage() {
             const img = document.getElementById('clickableImage');
             img.src = 'thums up man.png'; // Change to the new image
-            img.style.width = '350px'; // Instantly shrink to 100px
+            img.style.width = '350px'; // Set the width to 350px
 
             // Allow some time for the shrink, then grow
             setTimeout(() => {
-                img.classList.add('grow'); // Smoothly grow to 150px
-            }, 2); // Short delay before growing
+                img.classList.add('grow'); // Smoothly grow
+            }, 2);
+
+            // Play a random sound
+            playRandomSound();
+        }
+
+        function playRandomSound() {
+            // List of sound files (update the paths as needed)
+            const sounds = [
+                'sound1.mp3',
+                'sound2.mp3',
+                'sound3.mp3',
+                'sound4.mp3',
+                'sound5.mp3'
+            ];
+
+            // Randomly select one of the sounds
+            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+            
+            // Create an audio object and play the sound
+            const audio = new Audio(randomSound);
+            audio.play();
         }
     </script>
 </head>
