@@ -5,48 +5,34 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
-            background-image: url("water.png");
-            background-size: cover;
-            background-position: 0 0;
-            background-attachment: fixed; /* Keeps background from moving */
+            background-image: url("water.png"); /* Background image */
+            background-size: cover; /* Cover the whole background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
         }
 
-        #drown-img {
-            position: absolute;
-            top: 0; /* Position image at x:0, y:0 */
-            left: 0;
-            transition: transform 0.3s ease, background-position 0.3s ease;
-            cursor: pointer;
+        #clickableImage {
+            width: 200px; /* Initial image size */
+            transition: transform 0.3s ease, width 0.3s ease; /* Smooth size change */
         }
 
-        #drown-img.grow {
-            transform: scale(1.5); /* Make the image grow larger */
-        }
-
-        body.shifted {
-            background-position: 10px 10px; /* Shift the background 10px in both directions */
+        /* Optional animation when the image grows */
+        .grow {
+            transform: scale(1.1); /* Grow image slightly */
         }
     </style>
+    <script>
+        function changeImage() {
+            const img = document.getElementById('clickableImage');
+            img.src = 'thumbs up man.png'; // Change to the new image
+            img.classList.add('grow'); // Add grow effect
+        }
+    </script>
 </head>
 <body>
-    <img id="drown-img" src="drown.gif" alt="Drowning Image" />
-
-    <script>
-        const imgElement = document.getElementById('drown-img');
-        const bodyElement = document.body;
-
-        imgElement.addEventListener('click', function() {
-            // Change the image
-            imgElement.src = "thums up man.png";
-            
-            // Add the grow class to increase size
-            imgElement.classList.add('grow');
-            
-            // Shift the background by 10px
-            bodyElement.classList.add('shifted');
-        });
-    </script>
+    <img id="clickableImage" src="drown.gif" alt="Drowning man" onclick="changeImage()" />
 </body>
 </html>
