@@ -7,21 +7,26 @@
         body {
             background-image: url("water.png");
             background-size: cover;
-            background-attachment: fixed; /* Prevents background shifting */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-position: 0 0;
+            background-attachment: fixed; /* Keeps background from moving */
             height: 100vh;
             margin: 0;
         }
 
         #drown-img {
-            transition: transform 0.3s ease;
+            position: absolute;
+            top: 0; /* Position image at x:0, y:0 */
+            left: 0;
+            transition: transform 0.3s ease, background-position 0.3s ease;
             cursor: pointer;
         }
 
         #drown-img.grow {
-            transform: scale(1.5); /* Increased size */
+            transform: scale(1.5); /* Make the image grow larger */
+        }
+
+        body.shifted {
+            background-position: 10px 10px; /* Shift the background 10px in both directions */
         }
     </style>
 </head>
@@ -30,13 +35,17 @@
 
     <script>
         const imgElement = document.getElementById('drown-img');
-        
+        const bodyElement = document.body;
+
         imgElement.addEventListener('click', function() {
             // Change the image
             imgElement.src = "thums up man.png";
             
             // Add the grow class to increase size
             imgElement.classList.add('grow');
+            
+            // Shift the background by 10px
+            bodyElement.classList.add('shifted');
         });
     </script>
 </body>
